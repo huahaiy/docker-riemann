@@ -7,3 +7,4 @@ echo "\(logging/init {:file \"$RIEMANN_LOG_DIR/riemann.log\"}\)" >> /etc/riemann
 
 /etc/init.d/riemann restart
 
+exec "$@"
