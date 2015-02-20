@@ -1,10 +1,14 @@
 #!/bin/bash
 set -e
 
-sed -ri "s/[host \"d+.d+.d+.d+\"]/[host \"0.0.0.0\"]/" /etc/riemann/riemann.config
-echo "\(include \"$RIEMANN_CONFIG_INCLUDE_DIR\"\)" >> /etc/riemann/riemann.config
-echo "\(logging/init {:file \"$RIEMANN_LOG_DIR/riemann.log\"}\)" >> /etc/riemann/riemann.config
+if [ "$1" = 'riemann' ]; then
 
-/etc/init.d/riemann restart
+  sed -ri "s/\[host \"[0-9]+.[0-9]+.[0-9]+.[0-9]+\"\]/\[host \"0.0.0.0\"\]/" /etc/riemann/riemann.config
+  echo "(include \"$RIEMANN_CONFIG_INCLUDE_DIR\")" >> /etc/riemann/riemann.config
+
+  cat /etc/riemann/riemann.config
+
+  exec riemann "$@"
+fi
 
 exec "$@"

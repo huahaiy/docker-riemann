@@ -20,10 +20,10 @@ COPY ./docker-entrypoint.sh /
 
 ENV RIEMANN_CONFIG_INCLUDE_DIR /riemann
 
-ENV RIEMANN_LOG_DIR /var/log/riemann
-
 VOLUME ["/riemann", "/var/log/riemann"]
 
 EXPOSE 5555 5556
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["riemann"]
