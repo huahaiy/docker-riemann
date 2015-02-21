@@ -22,7 +22,7 @@ ENV RIEMANN_CONFIG_INCLUDE_DIR /riemann
 
 VOLUME ["/riemann", "/var/log/riemann"]
 
-EXPOSE 5555 5556
+EXPOSE 5555 5555/udp 5556
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
