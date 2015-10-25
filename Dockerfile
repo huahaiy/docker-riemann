@@ -1,7 +1,7 @@
 #
 # Riemann server
 #
-# Version     0.2.8
+# Version     0.2.10
 #
 
 FROM huahaiy/oracle-java
@@ -10,9 +10,9 @@ MAINTAINER Huahai Yang <hyang@juji-inc.com>
 
 RUN \
   echo "===> install Riemann..."  && \ 
-  wget https://aphyr.com/riemann/riemann_0.2.8_all.deb && \
-  dpkg -i riemann_0.2.8_all.deb && \
-  rm riemann_0.2.8_all.deb && \
+  wget https://aphyr.com/riemann/riemann_0.2.10_all.deb && \
+  dpkg -i riemann_0.2.10_all.deb && \
+  rm riemann_0.2.10_all.deb && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
